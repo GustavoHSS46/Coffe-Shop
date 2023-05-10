@@ -1,9 +1,10 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-    const user = useSupabaseUser();
-
-    if (!user.value && to.path === "/") {
-        navigateTo("/login");
-    } else if (user.value && to.path === "/") {
-        navigateTo("/");
+    const user = useCookie('sb-access-token')._rawValue;
+    if (user && to.path === '/login' || user && to.path === '/register' || user && to.path === '/verification') {
+        return navigateTo('/');
+    }
+    
+    if (!user && to.path === '/') {
+        return navigateTo('/login');
     }
 });
