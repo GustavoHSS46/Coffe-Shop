@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1 class="text-white text-4xl">macaco</h1>
+        <h1 class="text-white text-4xl">macaaaaaaco</h1>
+        <h2>sjkdhfjkhsjdhfjk</h2>
     </div>
 </template>
 
