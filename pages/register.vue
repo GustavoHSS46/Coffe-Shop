@@ -22,6 +22,14 @@ definePageMeta({
     middleware: ["auth"]
     // or middleware: 'auth'
 })
+const user = useCookie('sb-access-token');
+onMounted(() => {
+    watchEffect(() => {
+        if (user.value) {
+            return navigateTo('/');
+        }
+    })
+})
 
 const email = ref('')
 const password = ref('')

@@ -9,5 +9,5 @@
 const client = useSupabaseClient()
 
 const {data: coffes} = await useAsyncData('coffes', async () => client.from('coffes').select('*'), { transform: result => result.data })
-console.log(coffes)
+console.log(coffes.value)
 </script>

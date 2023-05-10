@@ -12,6 +12,14 @@
 definePageMeta({
   middleware: ["auth"]
 })
+const user = useCookie('sb-access-token');
+onMounted(() => {
+    watchEffect(() => {
+        if (!user.value) {
+            return navigateTo('/login');
+        }
+    })
+})
 
 const client = useSupabaseClient()
 
